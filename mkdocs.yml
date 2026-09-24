@@ -1,4 +1,5 @@
 site_name: semflow
+site_url: https://marcusinthesky.github.io/semflow/
 site_description: Semantic Python fingerprints for DVC dependencies
 docs_dir: docs
 site_dir: site
@@ -20,6 +21,7 @@ plugins:
             show_root_full_path: false
             show_signature_annotations: true
             merge_init_into_class: true
+            show_source: false
 validation:
   invalid_links: true
   invalid_link_anchors: true
