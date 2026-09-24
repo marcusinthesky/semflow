@@ -1,0 +1,10 @@
+project-root = "."
+pipeline-file = "dvc.yaml"
+hash-dir = ".semflow/hashes"
+source-roots = ["src"]
+
+[applications]
+example = "example.cli:app"
+
+[tracking]
+auto-typer = true

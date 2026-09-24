@@ -1,0 +1,8 @@
+stages:
+  greet:
+    cmd: example greet
+    deps:
+      - src/example/stage.py
+      - data/name.txt
+    outs:
+      - data/greeting.txt

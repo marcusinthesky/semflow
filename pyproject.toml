@@ -1,0 +1,56 @@
+[project]
+name = "semflow"
+version = "0.1.1"
+description = "Semantic Python fingerprints and review-first DVC dependency patches."
+readme = "README.md"
+requires-python = "~=3.13.0"
+dependencies = [
+  "pyyaml>=6.0",
+  "typer>=0.12.0",
+]
+
+[project.scripts]
+semflow = "semflow.cli:app"
+
+[dependency-groups]
+dev = [
+  "deptry",
+  "mkdocstrings-python",
+  "pyrefly>=1.1.1",
+  "pytest",
+  "pytest-monitor",
+  "pytest-testmon",
+  "pytest-xdist",
+  "ruff",
+  "types-PyYAML",
+  "zensical",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.deptry]
+known_first_party = ["semflow", "example"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/semflow"]
+
+[tool.pyrefly]
+preset = "strict"
+python-version = "3.13"
+project-includes = ["src/**/*.py", "tests/**/*.py"]
+project-excludes = ["**/.venv/**", "**/.devenv/**", "**/__pycache__/**"]
+
+[tool.pytest.ini_options]
+python_files = "test_*.py"
+testpaths = ["tests"]
+
+[tool.ruff]
+extend = "ruff-base.toml"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]
+
+[tool.uv]
+package = true
